@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
-NODENAME=$(hostname -s)
+NODENAME=$(hostname -s | tr '[:upper:]' '[:lower:]')
 CONFIG_FILE="${SCRIPT_DIR}/cluster-config.yaml"
 
 sudo -E kubeadm init --node-name $NODENAME --config=${CONFIG_FILE}
