@@ -1,6 +1,6 @@
 #!/bin/bash
 
-POD_CIDR="11.0.0.0/24"
+POD_CIDR="${POD_CIDR:-10.0.0.0/8}" # change this if your host is overlapping CIDR
 
 install_cilium() {
     helm install cilium cilium/cilium --version 1.18.3 \
